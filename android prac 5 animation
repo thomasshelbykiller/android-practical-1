@@ -1,0 +1,164 @@
+
+
+Activity_main.xml 
+
+
+<?xml version="1.0" encoding="utf-8"?> 
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android" 
+ xmlns:app="http://schemas.android.com/apk/res-auto"  xmlns:tools="http://schemas.android.com/tools"  android:id="@+id/relativeLayout" 
+ android:layout_width="match_parent" 
+ android:layout_height="match_parent" 
+ tools:context=".MainActivity">
+ <TextView 
+ android:id="@+id/txtAnim" 
+ android:layout_width="wrap_content"  android:layout_height="wrap_content"  android:layout_centerInParent="true"  android:text="Hello World!" 
+ android:textColor="@color/black" 
+ android:textSize="34sp" 
+ android:textStyle="bold" 
+ tools:ignore="MissingConstraints" 
+ tools:layout_editor_absoluteX="125dp"  tools:layout_editor_absoluteY="158dp" /> 
+ <Button 
+ android:id="@+id/btnTranslate" 
+ android:layout_width="match_parent"  android:layout_height="wrap_content"  android:layout_marginStart="4dp" 
+ android:layout_marginTop="492dp" 
+ android:layout_marginBottom="63dp"  android:layout_weight="1" 
+ android:text="Translate" 
+ app:layout_constraintBottom_toBottomOf="parent"  app:layout_constraintEnd_toEndOf="parent"  app:layout_constraintHorizontal_bias="1.0"  app:layout_constraintStart_toStartOf="parent"  app:layout_constraintTop_toTopOf="parent"  app:layout_constraintVertical_bias="1.0" />
+ <Button 
+ android:id="@+id/btnAlpha" 
+ android:layout_width="match_parent" 
+ android:layout_height="wrap_content" 
+ android:layout_marginStart="4dp" 
+ android:layout_marginBottom="80dp" 
+ android:layout_weight="1" 
+ android:text="Alpha" 
+ app:layout_constraintBottom_toBottomOf="@+id/btnTranslate"  app:layout_constraintEnd_toEndOf="parent" 
+ app:layout_constraintHorizontal_bias="1.0" 
+ app:layout_constraintStart_toStartOf="parent" /> 
+ <Button 
+ android:id="@+id/btnScale" 
+ android:layout_width="match_parent" 
+ android:layout_height="wrap_content" 
+ android:layout_marginStart="11dp" 
+ android:layout_marginEnd="10dp" 
+ android:layout_marginBottom="96dp" 
+ android:layout_weight="1" 
+ android:text="Scale" 
+ app:layout_constraintBottom_toBottomOf="@+id/btnRotate"  app:layout_constraintEnd_toEndOf="parent" 
+ app:layout_constraintHorizontal_bias="1.0" 
+ app:layout_constraintStart_toStartOf="parent" />  
+<Button
+ android:id="@+id/btnRotate" 
+ android:layout_width="match_parent" 
+ android:layout_height="wrap_content" 
+ android:layout_marginStart="4dp" 
+ android:layout_marginBottom="104dp" 
+ android:layout_weight="1" 
+ android:text="Rotate" 
+ app:layout_constraintBottom_toBottomOf="@+id/btnAlpha" 
+ app:layout_constraintEnd_toEndOf="parent" 
+ app:layout_constraintHorizontal_bias="1.0" 
+ app:layout_constraintStart_toEndOf="@+id/Translate" 
+ app:layout_constraintStart_toStartOf="parent" 
+ tools:ignore="UnknownId" /> 
+</androidx.constraintlayout.widget.ConstraintLayout> 
+
+
+  Move.xml 
+
+
+<?xml version="1.0" encoding="utf-8"?> 
+<set xmlns:android="http://schemas.android.com/apk/res/android"  android:interpolator ="@android:anim/bounce_interpolator"> 
+ <translate android:fromXDelta="0" 
+ android:toXDelta="400" 
+ android:duration="4000" 
+ android:repeatCount="infinite" 
+ android:repeatMode="reverse"/> 
+</set>
+
+
+  Alpha.xml 
+
+
+<?xml version="1.0" encoding="utf-8"?> 
+<set xmlns:android="http://schemas.android.com/apk/res/android">  <alpha android:fromAlpha="0" 
+ android:toAlpha="1" 
+ android:duration="4000" 
+ android:repeatCount = "infinite"/> 
+</set> 
+
+
+Rotation.xml 
+
+
+<?xml version="1.0" encoding="utf-8"?> 
+<set xmlns:android="http://schemas.android.com/apk/res/android">  <rotate android:fromDegrees="0" 
+ android:toDegrees="3600" 
+ android:duration="12000" 
+ android:pivotX="50%" 
+ android:pivotY="50%"/> 
+</set> 
+
+  
+Scale.xml 
+
+
+<?xml version="1.0" encoding="utf-8"?> 
+<set xmlns:android="http://schemas.android.com/apk/res/android"> <scale android:fromXScale="1" 
+ android:toXScale="4" 
+ android:fromYScale="1"
+ android:toYScale="4" 
+ android:duration="4000"/> 
+</set> 
+
+
+MainActivity.java 
+
+
+package com.example.animation; 
+import androidx.appcompat.app.AppCompatActivity; 
+import android.annotation.SuppressLint; 
+import android.os.Bundle; 
+import android.view.View; 
+import android.view.animation.Animation; import android.view.animation.AnimationUtils; import android.widget.Button; 
+import android.widget.TextView; 
+public class MainActivity extends AppCompatActivity { 
+ TextView txtAnim; 
+ Button btnTranslate,btnAlpha,btnRotate,btnScale; 
+ @SuppressLint("MissingInflatedId") 
+ @Override 
+ protected void onCreate(Bundle savedInstanceState) {  super.onCreate(savedInstanceState); 
+ setContentView(R.layout.activity_main);
+ txtAnim = findViewById(R.id.txtAnim); 
+ btnTranslate = findViewById(R.id.btnTranslate); 
+ btnAlpha = findViewById(R.id.btnAlpha); 
+ btnRotate = findViewById(R.id.btnRotate); 
+ btnScale = findViewById(R.id.btnScale); 
+ btnTranslate.setOnClickListener(new View.OnClickListener() {  @Override 
+ public void onClick(View view) { 
+ Animation move =  
+AnimationUtils.loadAnimation(getApplicationContext(),R.anim.move);  txtAnim.startAnimation(move); 
+ } 
+ }); 
+ btnAlpha.setOnClickListener(new View.OnClickListener() {  @Override 
+ public void onClick(View view) { 
+ Animation alpha =  
+AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);  txtAnim.startAnimation(alpha); 
+ } 
+ }); 
+ btnRotate.setOnClickListener(new View.OnClickListener() {  @Override 
+ public void onClick(View view) {
+ Animation rotation =  
+AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotation);  txtAnim.startAnimation(rotation); 
+ } 
+ }); 
+ btnScale.setOnClickListener(new View.OnClickListener() { 
+ @Override 
+ public void onClick(View view) { 
+ Animation scale =  
+AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale); 
+ txtAnim.startAnimation(scale); 
+ } 
+ }); 
+ } 
+} 
