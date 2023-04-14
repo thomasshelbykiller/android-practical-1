@@ -1,0 +1,331 @@
+1.
+If condition 
+
+Code:
+fun main(args: Array<String>) {
+val age:Int = 10
+if (age > 18) {
+print("Adult")
+} else {
+print("Minor")
+}
+}
+
+If else condition
+
+Code:
+fun main(args: Array<String>) {
+val age:Int = 10
+val result = if (age > 18) {
+"Adult"
+} else {
+"Minor"
+}
+println(result)
+}
+
+If else with multiple lines 
+
+Code:
+fun main(args: Array<String>) {
+val age:Int = 10
+val result = if (age > 18) {
+println("Given condition is true")
+"Adult"
+} else {
+println("Given condition is false")
+"Minor"
+}
+print("The value of result : ")
+println(result)
+}
+
+2) If...else...If condition
+
+Code
+fun main(args: Array<String>) {
+val age:Int = 13
+val result = if (age > 19) {
+"Adult"
+} else if ( age > 12 && age < 20 ){
+"Teen"
+} else {
+"Minor"
+}
+print("The value of result : ")
+println(result)
+}
+
+3) Nested If condition
+
+Code
+fun main(args: Array<String>) {
+val age:Int = 20
+val result = if (age > 12) {
+if ( age > 12 && age < 20 ){
+"Teen"
+}else{
+"Adult"
+}
+} else {
+"Minor"
+}
+print("The value of result : ")
+println(result)
+}
+1.
+If condition 
+
+Code:
+fun main(args: Array<String>) {
+val age:Int = 10
+if (age > 18) {
+print("Adult")
+} else {
+print("Minor")
+}
+}
+
+If else condition
+
+Code:
+fun main(args: Array<String>) {
+val age:Int = 10
+val result = if (age > 18) {
+"Adult"
+} else {
+"Minor"
+}
+println(result)
+}
+
+If else with multiple lines 
+
+Code:
+fun main(args: Array<String>) {
+val age:Int = 10
+val result = if (age > 18) {
+println("Given condition is true")
+"Adult"
+} else {
+println("Given condition is false")
+"Minor"
+}
+print("The value of result : ")
+println(result)
+}
+
+2) If...else...If condition
+
+Code
+fun main(args: Array<String>) {
+val age:Int = 13
+val result = if (age > 19) {
+"Adult"
+} else if ( age > 12 && age < 20 ){
+"Teen"
+} else {
+"Minor"
+}
+print("The value of result : ")
+println(result)
+}
+
+3) Nested If condition
+
+Code
+fun main(args: Array<String>) {
+val age:Int = 20
+val result = if (age > 12) {
+if ( age > 12 && age < 20 ){
+"Teen"
+}else{
+"Adult"
+}
+} else {
+"Minor"
+}
+print("The value of result : ")
+println(result)
+}
+
+5) When
+
+Code
+fun main(args: Array<String>) {
+val day = 2
+val result = when (day) {
+1 -> "Monday"
+2 -> "Tuesday"
+3 -> "Wednesday"
+4 -> "Thursday"
+5 -> "Friday"
+6 -> "Saturday"
+7 -> "Sunday"
+else -> "Invalid day."
+}
+println(result)
+}
+
+Range in when Conditions 
+
+Code
+ 
+fun main(args: Array<String>) { 
+val day = 2 
+when (day) { 
+in 1..5 -> println("Weekday") 
+else -> println("Weekend") 
+} 
+} 
+
+Loops in Kotlin 
+
+Code 
+
+fun main(args : Array<String>) { 
+val marks = arrayOf(80,85,60,90,70) 
+for(item in marks.indices) 
+println("marks[$item]: "+ marks[item]) 
+} 
+
+Iterate Through a Array 
+
+Code 
+
+fun main(args: Array<String>) { 
+var fruits = arrayOf("Orange", "Apple", "Mango", "Banana") 
+for (item in fruits) { 
+println(item)
+} 
+} 
+
+2) While loop 
+
+Code 
+fun main(args: Array<String>) { 
+var x:Int = 0 
+println("Example of While Loop--") 
+while(x< = 10) { 
+println(x) 
+x++ 
+} 
+}
+
+
+3) Do While Loop 
+
+Code 
+
+fun main(args: Array<String>){ 
+var i = 1 
+do { 
+println(i)
+SMRITI.M.DUBEY 
+PRACTICAL 1 – CONTROL STRUCTURES, LOOPS AND OOPS CONCEPT 
+i++ 
+} 
+while (i<=5); 
+} 
+
+4) Kotlin Break Statement while out for
+
+Code 
+
+fun main(args: Array<String>) { 
+var i = 0; 
+while (i++ < 100) { 
+println(i) 
+if( i == 3 ){ 
+break 
+} 
+} 
+}
+
+5) CREATING CLASS
+
+Code
+ 
+class Car { 
+var brand = "" 
+var model = "" 
+var year = 0 
+} 
+fun main() { 
+val c1 = Car() 
+c1.brand = "Ford" 
+c1.model = "Mustang" 
+c1.year = 1969 
+println(c1.brand) 
+println(c1.model) 
+println(c1.year) 
+} 
+
+6) CLASS WITH MULTIPLE OBJECTS
+
+CODE
+
+class Car { 
+var brand = "" 
+var model = "" 
+var year = 0
+} 
+fun main() { 
+val c1 = Car() 
+c1.brand = "Ford" 
+c1.model = "Mustang" 
+c1.year = 1969 
+val c2 = Car() 
+c2.brand = "BMW" 
+c2.model = "X5" 
+c2.year = 1999 
+println(c1.brand) 
+println(c2.brand) 
+} 
+
+Constructor 
+ 
+Code 
+
+class Car(var brand: String, var model: String, var year: Int) 
+fun main() { 
+val c1 = Car("Ford", "Mustang", 1969) 
+println(c1.brand) 
+println(c1.model) 
+println(c1.year) 
+} 
+
+Function 
+ 
+Code 
+
+class Car(var brand: String, var model: String, var year: Int) {
+ { 
+println("Wrooom!") 
+}
+} 
+fun main() { 
+val c1 = Car("Ford", "Mustang", 1969)  
+println(c1.brand + " " + c1.model + " " + c1.year) 
+c1.drive() 
+} 
+
+Class Function Parameters 
+
+
+fun drive() { 
+println("Wrooom!") 
+} 
+fun speed(maxSpeed: Int) { 
+println("Max speed is: " + maxSpeed) 
+} 
+} 
+fun main() { 
+val c1 = Car("Ford", "Mustang", 1969) 
+println(c1.brand + " " + c1.model + " " + c1.year) 
+// Call the functions 
+c1.drive() 
+c1.speed(200) 
+}
+
+
