@@ -1,0 +1,124 @@
+UI Components 
+desing 1
+
+Activity_main.xml 
+
+
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout
+ xmlns:android="http://schemas.android.com/apk/res/android"  xmlns:app="http://schemas.android.com/apk/res-auto"  xmlns:tools="http://schemas.android.com/tools"  android:layout_width="match_parent" 
+ android:layout_height="match_parent" 
+ android:orientation="vertical" 
+ android:id="@+id/linearlayout" 
+ tools:ignore="ExtraText"> 
+ tools:context=".MainActivity"> 
+ <TextView 
+ android:layout_width="match_parent" 
+ android:layout_height="wrap_content" 
+ android:layout_margin="50dp" 
+ android:text="Registration Page" 
+ android:textAlignment="center" 
+ android:textColor="@color/purple_500" 
+ android:textSize="30sp" 
+ tools:ignore="MissingConstraints" /> 
+ <EditText 
+ android:id="@+id/editTextPersonName" 
+ android:layout_width="300dp" 
+ android:layout_height="60dp" 
+ android:layout_marginLeft="40dp"
+ android:layout_marginTop="50dp"  android:ems="10" 
+ android:hint="Please write your name"  android:inputType="textPersonName" /> 
+ <Button 
+ android:id="@+id/button" 
+ android:layout_width="300dp" 
+ android:layout_height="wrap_content"  android:layout_marginLeft="40dp"  android:layout_marginTop="30dp"  android:text="OK" /> 
+ <TextView 
+ android:id="@+id/textView" 
+ android:layout_width="300dp" 
+ android:layout_height="50dp" 
+ android:layout_marginLeft="40dp"  android:layout_marginTop="30dp"  android:gravity="center|center_horizontal"  android:text="Result" /> 
+ <TextView 
+ android:id="@+id/textViewResult"  android:layout_width="300dp" 
+ android:layout_height="60dp"
+ android:layout_marginLeft="40dp" 
+ android:layout_marginTop="50dp" 
+ android:background="#CC1C1C" 
+ android:gravity="center_vertical" 
+ android:paddingLeft="7dp" 
+ android:text="What is your gender?" 
+ android:textColor="@color/white" 
+ android:textSize="24sp" 
+ app:layout_constraintEnd_toEndOf="parent" 
+ app:layout_constraintStart_toStartOf="parent" 
+ app:layout_constraintTop_toTopOf="parent" /> 
+ <CheckBox 
+ android:id="@+id/checkBoxMale" 
+ android:layout_width="wrap_content" 
+ android:layout_height="wrap_content" 
+ android:layout_marginStart="160dp" 
+ android:layout_marginTop="20dp" 
+ android:text="Male" 
+ android:textSize="20sp" 
+ app:layout_constraintStart_toStartOf="parent" 
+ app:layout_constraintTop_toBottomOf="@+id/textViewResult" /> 
+ <CheckBox 
+ android:id="@+id/checkBoxFemale" 
+ android:layout_width="wrap_content" 
+ android:layout_height="wrap_content" 
+ android:layout_marginStart="160dp" 
+ android:layout_marginTop="10dp" 
+ android:minHeight="48dp" 
+ android:text="Female" 
+ android:textSize="20sp" 
+ app:layout_constraintStart_toStartOf="parent"  app:layout_constraintTop_toBottomOf="@+id/checkBoxMale"  tools:ignore="TouchTargetSizeCheck" /> 
+</LinearLayout> 
+
+
+MainActivity.kt 
+
+
+package com.example.myapplicationprac2 
+import android.annotation.SuppressLint 
+import android.graphics.Color 
+import androidx.appcompat.app.AppCompatActivity import android.os.Bundle 
+import android.widget.* 
+class MainActivity : AppCompatActivity() { 
+ lateinit var name: EditText 
+ lateinit var ok: Button
+ lateinit var res: TextView 
+ lateinit var result: TextView 
+ lateinit var male: CheckBox 
+ lateinit var female: CheckBox 
+  
+ @SuppressLint("MissingInflatedId") 
+ override fun onCreate(savedInstanceState: Bundle?) { 
+ super.onCreate(savedInstanceState) 
+ setContentView(R.layout.activity_main) 
+ name = findViewById(R.id.editTextPersonName) 
+ ok = findViewById(R.id.button) 
+ res = findViewById(R.id.textView) 
+ ok.setOnClickListener { 
+ var userName: String = name.text.toString() // this code will take the  text that user enters and convert into string 
+ res.setText(userName) 
+ } 
+ male = findViewById(R.id.checkBoxMale) 
+ female = findViewById(R.id.checkBoxFemale) 
+ result = findViewById(R.id.textViewResult) 
+female.setOnClickListener { 
+ if (female.isChecked) {
+SMRITI.M.DUBEY Page no 
+UI Components 
+ result.text = "Your gender is female"  male.isChecked = false 
+ } else { 
+ result.text = "What is your gender?"  } 
+ male.setOnClickListener { 
+ if (male.isChecked) { 
+ result.text = "Your gender is male"  female.isChecked = false  } else { 
+ result.text = "What is your gender?"  } 
+ } 
+ } 
+ } 
+} 
+
+ 
+
